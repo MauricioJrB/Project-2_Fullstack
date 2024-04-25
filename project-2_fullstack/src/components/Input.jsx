@@ -1,5 +1,7 @@
-const Input = ({ value, onChange, onEnterPress}) => {
+import React from "react";
+import "./Input.scss";
 
+const Input = ({ label, value, onChange, onEnterPress }) => {
    const handleKewDown = (e) => {
       if (e.key === 'Enter') {
          onEnterPress();
@@ -11,10 +13,17 @@ const Input = ({ value, onChange, onEnterPress}) => {
          <input 
             type="text" 
             value={value}  
-            placeholder="Pesquise"
+            className="custom-input"
             onChange={(e) => onChange(e)}
             onKeyDown={(e) => handleKewDown(e)}
          />
+        
+         {label ? (
+            <label className={`${value.length > 0 ? "shrink" : ""}
+            input-label`}> 
+            {label}
+            </label>
+         ) : null}
       </div>
    );
 };
