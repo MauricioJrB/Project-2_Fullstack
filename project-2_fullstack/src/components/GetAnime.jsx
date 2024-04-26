@@ -1,56 +1,55 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState} from "react";
+import { FaSearch } from "react-icons/fa";
+import { useAlert } from "react-alert";
+
+import "./GetAnime.scss";
+import "./Button.scss";
 
 import Input from "./Input";
 import Button from "./Button";
 
-const GetAnime = ({ onAnimeReceived }) => {
-   const [character, setCharacter] = useState("");
+const GetAnime = ({ fetchAnimes }) => {
+  const [character, setCharacter] = useState("");
 
-   const onChange = (e) => {
-      setCharacter(e.target.value);
-   };
+  const alert = useAlert();
 
-   const fetchAnimes = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://animechan.xyz/api/random/character?name=${character}`
-        )
-        onAnimeReceived(data);
-      } catch (error) {
-        console.log("Erro", error);
+  const onChange = (e) => {
+    setCharacter(e.target.value);
+  };
+
+  const handleAnimeGet = async () => {
+    try {
+      if (character.length === 0) {
+        return alert.error("A busca precisa de um personagem para ser encontrado!");
       }
-    };
-  
-    useEffect(() => {
-      fetchAnimes();
-    }, []);
+     
+      await fetchAnimes(character);
 
-   const handleAnimeGet = async () => {
-      try {
-         if (character.length === 0) {
-            return <p>Não pode ser vazio</p>
-         }
-
-         const { data } = await axios.get(`https://animechan.xyz/api/random/character?name=${character}`);
-         onAnimeReceived(data);
-      } catch (error) {
-         console.error("Erro ao buscar anime:", error);
+      if (character.length === 0) {
+        return alert.error("Personagem não encontrado!");
       }
-   };
 
-   return (
-      <div className="getanime-container">
-         <Input 
-         value={character}
-         onChange={onChange}
-         onEnterPress={handleAnimeGet}   
-         />
-         <Button onClick={handleAnimeGet}>
-            Clique aqui
-         </Button>
-      </div>
-   );
+      setCharacter("");
+      
+    } catch (_error) {
+      alert.error("Personagem não encontrado! Digite novamente.");
+    }
+  };
+
+  return (
+    <div className="getanime-container">
+      <Input
+        label={"Digite o nome do personagem..."}
+        value={character}
+        onChange={onChange}
+        onEnterPress={handleAnimeGet}
+      />
+      <Button onClick={handleAnimeGet} >
+         Buscar <FaSearch size={18} className="icon-search"/>
+      </Button>
+    </div>
+  );
 };
 
 export default GetAnime;
+
