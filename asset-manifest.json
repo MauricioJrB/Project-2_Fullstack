@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Project-2_Fullstack/project-2_fullstack/static/css/main.f7b19e53.css",
-    "main.js": "/Project-2_Fullstack/project-2_fullstack/static/js/main.2a5bf002.js",
-    "static/js/453.ee60cd3d.chunk.js": "/Project-2_Fullstack/project-2_fullstack/static/js/453.ee60cd3d.chunk.js",
-    "index.html": "/Project-2_Fullstack/project-2_fullstack/index.html",
-    "main.f7b19e53.css.map": "/Project-2_Fullstack/project-2_fullstack/static/css/main.f7b19e53.css.map",
-    "main.2a5bf002.js.map": "/Project-2_Fullstack/project-2_fullstack/static/js/main.2a5bf002.js.map",
-    "453.ee60cd3d.chunk.js.map": "/Project-2_Fullstack/project-2_fullstack/static/js/453.ee60cd3d.chunk.js.map"
+    "main.css": "/Project-2_Fullstack/static/css/main.f7b19e53.css",
+    "main.js": "/Project-2_Fullstack/static/js/main.4968bd4c.js",
+    "static/js/453.ee60cd3d.chunk.js": "/Project-2_Fullstack/static/js/453.ee60cd3d.chunk.js",
+    "index.html": "/Project-2_Fullstack/index.html",
+    "main.f7b19e53.css.map": "/Project-2_Fullstack/static/css/main.f7b19e53.css.map",
+    "main.4968bd4c.js.map": "/Project-2_Fullstack/static/js/main.4968bd4c.js.map",
+    "453.ee60cd3d.chunk.js.map": "/Project-2_Fullstack/static/js/453.ee60cd3d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f7b19e53.css",
-    "static/js/main.2a5bf002.js"
+    "static/js/main.4968bd4c.js"
   ]
 }
